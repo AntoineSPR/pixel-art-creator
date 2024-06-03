@@ -1,10 +1,5 @@
 const app = document.getElementById('app');
 
-
-const reset = document.createElement('reset');
-reset.innerHTML = '<input type=reset>';
-app.append(reset);
-
 const submit = document.getElementById('submit');
 
 submit.addEventListener('click', (e)=> {
@@ -12,12 +7,22 @@ submit.addEventListener('click', (e)=> {
 
     let canvasSize = document.getElementById('canvas-size').value;
 
+    const existingColor = app.querySelector('colorInput');
+    if (existingColor) {
+        app.removeChild(existingColor);
+    }
+
+    const colorInput = document.createElement('colorInput');
+    colorInput.innerHTML = '<input type="color" name="color" id="color"></input>';
+    app.append(colorInput);
+
     const existingTable = app.querySelector('table');
     if (existingTable) {
         app.removeChild(existingTable);
     }
 
     const table = document.createElement('table');
+    table.style.margin = "auto";
     app.append(table);
 
     let column = '';
@@ -45,6 +50,15 @@ submit.addEventListener('click', (e)=> {
         })
     }
 
+    const existingReset = app.querySelector('reset');
+    if (existingReset) {
+        app.removeChild(existingReset);
+    }
+
+    const reset = document.createElement('reset');
+    reset.innerHTML = '<input type="reset" value="Reset canvas">';
+    app.append(reset);
+    
     reset.addEventListener('click', (e) => {
         for (let i = 0; i < cell.length; i++) {
             cell[i].style.backgroundColor = 'initial';

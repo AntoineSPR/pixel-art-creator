@@ -1,11 +1,36 @@
+body {
+    --square-size: 2rem;
+}
+
 table {
     border-collapse: collapse;
     margin-block-start: 0.5rem;
 }
   
 td {
-    --square-size: 2rem;
     width: var(--square-size);
     height: var(--square-size);
     border: solid 1px black;
 } 
+
+h1 {
+    text-align: center;
+}
+
+#color {
+    width: calc(var(--square-size) + 0.5rem);
+    height: calc(var(--square-size) + 0.5rem);
+    margin: auto;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+input[type="number"] {
+    width: 3rem;
+}
+
+input[type="reset"] {
+    margin: auto;
+    margin-top: 1rem;
+    display: block;
+}
