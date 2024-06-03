@@ -12,6 +12,11 @@ submit.addEventListener('click', (e)=> {
 
     let canvasSize = document.getElementById('canvas-size').value;
 
+    const existingTable = app.querySelector('table');
+    if (existingTable) {
+        app.removeChild(existingTable);
+    }
+
     const table = document.createElement('table');
     app.append(table);
 
